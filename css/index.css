@@ -1,0 +1,153 @@
+button{
+    background-color: green;
+    color: white;
+    width: 170px;
+    height: 50px;
+}
+
+table{
+    border: 2px solid red;
+
+    width: 100%;
+
+}
+tr{
+    border-bottom: 2px solid brown;
+}
+
+tr:nth-child(even){
+    background-color: rgb(227, 222, 222);
+}
+
+.create{
+    display: flex;
+
+    margin-bottom: 15px;
+    align-items: center;
+    justify-content: center;
+
+    
+}
+
+.buttons{
+    display:  flex;
+    justify-content: end;
+}
+
+
+
+teable{
+    display: block;
+    width: 100%;
+}
+
+.title{
+   
+    display: flex;
+    flex-direction: row;
+    grid-area: t;
+    justify-content: space-between;
+
+
+}
+
+.author{
+    display: flex;
+    flex-direction: row;
+    grid-area: a;
+    justify-content: space-between;
+}
+
+.genre{
+   display: flex;
+   flex-direction: row;
+   grid-template-columns: g; 
+   justify-content: space-between;
+}
+
+.year{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.container2{
+border: 2px solid red;
+display:  flex;
+flex-direction: column;
+    width: 600px;
+    gap:15px;
+
+}
+input{
+    width: 60%;
+}
+
+.buttons{
+    border: 2px solid red;
+    display: flex;
+justify-content: center;
+margin-top: 15px;
+}
+
+.container3{
+    display:  flex;
+    flex-direction: column;
+    width: 600px;
+    gap:15px;
+    
+}
+
+/* ........................... */
+
+/* 
+input{
+    width: 60%;
+}
+
+
+.title{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.author{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.genre{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.year{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; */
+
+
+.buttons2{
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    
+}
+
+button{
+    
+    background-color: aquamarine;
+    width: 25%;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+body{
+    background-color:lightgray;
+}
