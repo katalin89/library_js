@@ -32,6 +32,7 @@ function setHome(){
     <div >
         <a>
             <button class="create">Create New Book</button>
+            <button class="sort">Sort</button>
         </a>
     </div>
 
@@ -56,9 +57,6 @@ function setHome(){
     
         </tbody>
     </table>
-
-    
-    
     `
 
 
@@ -84,8 +82,30 @@ function setHome(){
         }
     })
 
+    let btnSort=document.querySelector(".sort");
+    btnSort.addEventListener("click",()=>{
+        sorteaza(books);
+        setHome();
+    })
 
 
+
+}
+
+function sorteaza(arr){
+    let s;
+
+    for(let i=0;i<arr.length-1;i++){
+        for(let j=i+1;j<arr.length;j++){
+            if(arr[i].year>arr[j].year){
+                s=arr[i];
+                arr[i]=arr[j];
+                arr[j]=s;
+            }
+        }
+    }
+
+    return arr;
 }
 
 
@@ -186,7 +206,7 @@ let year=document.querySelector(".year-library");
 
 function returnObiect(arr,titlu){
     for(let i=0;i<arr.length;i++){
-        if(arr[i].titlu==titlu){
+        if(arr[i].title==titlu){
             return arr[i];
         }
     } 
@@ -214,22 +234,22 @@ function setUpdate(book){
         <div class="container3">
             <div class="title">
                 <p>Title</p>
-                <input type="text" class="title-book" value="${book.title}">
+                <input type="text" class="title-library" value="${book.title}">
             </div>
 
             <div class="author"> 
                 <p>Author</p>
-                <input type="text" class="author-book" value="${book.author}" >
+                <input type="text" class="author-library" value="${book.author}" >
             </div>
 
             <div class="genre">
                 <p>Genre</p>
-                <input type="text" class="genre-book" value="${book.genre}">
+                <input type="text" class="genre-library" value="${book.genre}">
             </div>
 
             <div class="year">
                 <p>Year</p>
-                <input type="text" class="year-book" value="${book.year}">
+                <input type="text" class="year-library" value="${book.year}">
             </div>
         <div class="buttons2">
             <button class="update">Update  Book</button>
@@ -240,20 +260,52 @@ function setUpdate(book){
         </div>
     `
    let btnUpdate=document.querySelector(".update");
+   let title=document.querySelector(".title-library");
+   let author=document.querySelector(".author-library");
+   let genre=document.querySelector(".genre-library");
+   let year=document.querySelector(".year-library");
 
    btnUpdate.addEventListener("click",()=>{
 
     let book = {
-  title: "The Yellow Meads of Asphodel",
-  author: "Francisca Osinski III",
-  genre: "Fable",
-  year: 2021,
-}
+  title: title.value,
+  author: author.value,
+  genre: genre.value,
+  year: year.value,
+};
+
+
 
 updateObiect(books,book);
 setHome();
 
    })
+
+   let btnDelete=document.querySelector(".delete");
+   btnDelete.addEventListener("click",()=>{
+
+    let book={
+        title:title.value,
+        author:author.value,
+        genre:genre.value,
+        year:year.value,
+
+    }
+
+    books=[...stregere(books,book.title)]
+    console.log(books);
+    setHome();
+   });
+}
+
+function  stregere(arr,title){
+    let nou=[];
+    for(let i=0;i<arr.length;i++){
+        if(arr[i].title!==title){
+            nou.push(arr[i]);
+        }
+    }
+    return nou;
 }
 
 
